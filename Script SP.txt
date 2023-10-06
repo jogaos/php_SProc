@@ -1,0 +1,23 @@
+DROP PROCEDURE IF EXISTS `crearNuevoEstudiante`;
+DELIMITER $$
+USE `school`$$
+CREATE PROCEDURE `crearNuevoEstudiante` (in identifier INT,
+										in firstName varchar(50),
+                                        in lastName varchar(50),
+                                        in pass varchar(50))
+BEGIN
+	INSERT INTO student(ID, First_Name, Last_Name) VALUES(identifier, firstName, lastName) ;
+    INSERT INTO user(user, name, password, role) VALUES(identifier, CONCAT(firstName,' ',lastName), pass, "Estudiante");
+END$$
+
+DELIMITER ;
+
+
+SET @p0='525251'; 
+SET @p1='Jonathan'; 
+SET @p2='García'; 
+SET @p3='654321654'; 
+
+CALL `crearNuevoEstudiante`(@p0, @p1, @p2, @p3);
+
+
