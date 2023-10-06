@@ -6,7 +6,7 @@ CREATE PROCEDURE `crearNuevoEstudiante` (in identifier INT,
                                         in lastName varchar(50),
                                         in pass varchar(50))
 BEGIN
-	INSERT INTO student(ID, First_Name, Last_Name) VALUES(identifier, firstName, lastName) ;
+	INSERT INTO student(identifier, First_Name, Last_Name) VALUES(identifier, firstName, lastName) ;
     INSERT INTO user(user, name, password, role) VALUES(identifier, CONCAT(firstName,' ',lastName), pass, "Estudiante");
 END$$
 
